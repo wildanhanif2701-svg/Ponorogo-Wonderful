@@ -1,194 +1,326 @@
-// =============================================
-// PONOROGO PRIDE - FINAL CLEAN SCRIPT
-// =============================================
+```javascript
+// ============================
+// MENU MOBILE
+// ============================
 
-// ================= NAVIGATION =================
-function showSegment(id) {
-    document.querySelectorAll(".segment").forEach(seg => {
-        seg.classList.remove("active");
-    });
-
-    const target = document.getElementById(id);
-    if (target) target.classList.add("active");
-
-    updateNavActive(id);
-
-    window.scrollTo({ top: 0, behavior: "smooth" });
-}
-
-function updateNavActive(id) {
-    document.querySelectorAll(".nav-btn").forEach(btn => {
-        btn.classList.remove("text-orange-500", "active-nav");
-    });
-
-    const activeBtn = document.getElementById("nav-" + id);
-    if (activeBtn) {
-        activeBtn.classList.add("text-orange-500", "active-nav");
-    }
-}
-
-// ================= INIT =================
 document.addEventListener("DOMContentLoaded", () => {
-    const bg = document.getElementById("master-bg-layer");
-    if (bg) {
-        bg.style.backgroundImage = "url('foto-barong.png')";
+
+    const hamburger = document.getElementById("hamburger");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    if (hamburger && mobileMenu) {
+
+        hamburger.addEventListener("click", () => {
+
+            if (
+                mobileMenu.style.display === "flex"
+            ) {
+                mobileMenu.style.display = "none";
+            } else {
+                mobileMenu.style.display = "flex";
+            }
+
+        });
+
+        document
+            .querySelectorAll(".mobile-menu a")
+            .forEach(link => {
+
+                link.addEventListener("click", () => {
+                    mobileMenu.style.display = "none";
+                });
+
+            });
+
     }
 
-    showSegment("home");
-    loadGameQuestion();
 });
 
-// ================= QUIZ =================
+
+// ============================
+// DATA QUIZ
+// ============================
+
 const quizData = [
-    { q: "Apa nama topeng ikonik Reog Ponorogo yang beratnya 40-50 kg?", a: ["Bujangganong", "Dadak Merak", "Kelono Sewandono", "Jathil"], c: 1 },
-    { q: "Reog Ponorogo diakui UNESCO tahun berapa?", a: ["2013", "2022", "2024", "2025"], c: 2 },
-    { q: "Siapa tokoh pemimpin Reog?", a: ["Warok", "Gemblak", "Pembarong", "Jathil"], c: 0 },
-    { q: "Reog berasal dari mana?", a: ["Surabaya", "Malang", "Ponorogo", "Kediri"], c: 2 },
-    { q: "Makna Dadak Merak adalah...", a: ["Sombong", "Kekuatan & keindahan", "Hiburan", "Perang"], c: 1 },
-    { q: "Tantangan pelestarian Reog?", a: ["Ramai", "Urbanisasi", "Mahal", "Tidak ada festival"], c: 1 },
-    { q: "Fungsi Reog selain hiburan?", a: ["Dakwah & karakter", "Pernikahan", "Olahraga", "Tidak ada"], c: 0 },
-    { q: "Inovasi digital Reog?", a: ["TikTok & animasi", "Hentikan budaya", "Buku saja", "Tutup sanggar"], c: 0 }
+
+{
+q:"Siapa pendiri kesenian Reog Ponorogo menurut legenda?",
+a:[
+"Ki Ageng Kuntjoro",
+"Raden Panji Sumirat",
+"Prabu Klono Sewandono",
+"Ki Ageng Suryo Ngalim"
+],
+correct:2
+},
+
+{
+q:"Apa nama topeng raksasa utama dalam Reog Ponorogo?",
+a:[
+"Bujang Ganong",
+"Singa Barong",
+"Patih Surowi",
+"Jathilan"
+],
+correct:1
+},
+
+{
+q:"Apa makna filosofis Singa Barong?",
+a:[
+"Kekuasaan Raja",
+"Kekuatan Alam dan Spiritual",
+"Kebijaksanaan",
+"Hiburan"
+],
+correct:1
+},
+
+{
+q:"Kabupaten Ponorogo dikenal sebagai?",
+a:[
+"Kota Batik",
+"Kota Reog",
+"Kota Apel",
+"Kota Keris"
+],
+correct:1
+},
+
+{
+q:"Siapa tokoh jenaka dalam pertunjukan Reog?",
+a:[
+"Warok",
+"Jathil",
+"Bujang Ganong",
+"Prabu Klono"
+],
+correct:2
+}
+
 ];
+
+
+// ============================
+// VARIABEL
+// ============================
 
 let currentQuestion = 0;
 let score = 0;
-let answers = [];
-let studentName = "";
+let selectedAnswer = null;
+
+
+// ============================
+// MULAI QUIZ
+// ============================
 
 function startQuiz() {
-    studentName = document.getElementById("stu-name")?.value.trim() || "Peserta Hebat";
 
     currentQuestion = 0;
     score = 0;
-    answers = [];
 
-    document.getElementById("eval-setup")?.classList.add("hidden");
-    document.getElementById("q-container")?.classList.remove("hidden");
+    document.getElementById("quiz-start").style.display = "none";
+    document.getElementById("quiz-result").style.display = "none";
+    document.getElementById("quiz-active").style.display = "block";
 
-    renderQuestion();
+    loadQuestion();
 }
 
-function renderQuestion() {
-    const container = document.getElementById("q-container");
-    const q = quizData[currentQuestion];
 
-    if (!container || !q) return;
+// ============================
+// LOAD SOAL
+// ============================
 
-    container.innerHTML = `
-        <h3 class="text-2xl font-bold text-white mb-6">
-            ${q.q}
-        </h3>
+function loadQuestion() {
 
-        <div class="space-y-3">
-            ${q.a.map((opt, i) => `
-                <button onclick="selectAnswer(${i})"
-                    class="w-full text-left p-4 rounded-xl bg-slate-800 text-white hover:bg-orange-600 transition">
-                    ${opt}
-                </button>
-            `).join("")}
-        </div>
-    `;
+    const question = quizData[currentQuestion];
+
+    document.getElementById("current-q").textContent =
+        currentQuestion + 1;
+
+    document.getElementById("score").textContent =
+        "Skor: " + score;
+
+    document.getElementById("question-text").textContent =
+        question.q;
+
+    const optionsContainer =
+        document.getElementById("options");
+
+    optionsContainer.innerHTML = "";
+
+    question.a.forEach((answer,index) => {
+
+        const option =
+            document.createElement("div");
+
+        option.className = "option";
+
+        option.textContent = answer;
+
+        option.addEventListener("click", () => {
+            selectAnswer(index);
+        });
+
+        optionsContainer.appendChild(option);
+
+    });
+
+    selectedAnswer = null;
+
+    document.getElementById("next-btn").style.display =
+        "none";
 }
 
-function selectAnswer(i) {
-    answers[currentQuestion] = i;
 
-    if (i === quizData[currentQuestion].c) {
-        score += 10;
-    }
+// ============================
+// PILIH JAWABAN
+// ============================
 
-    currentQuestion++;
+function selectAnswer(index) {
 
-    if (currentQuestion >= quizData.length) {
-        finishQuiz();
-    } else {
-        renderQuestion();
-    }
-}
-
-function finishQuiz() {
-    document.getElementById("q-container")?.classList.add("hidden");
-
-    document.getElementById("res-name").textContent = studentName;
-    document.getElementById("res-score").textContent = score;
-
-    let status =
-        score >= 80 ? "PELAKU REOG ULUNG" :
-        score >= 60 ? "PECINTA REOG" :
-        "AYO BELAJAR LAGI";
-
-    document.getElementById("res-status").textContent = status;
-
-    showSegment("rekapan");
-}
-
-// ================= GAME =================
-let gameIndex = 0;
-
-const gameQuestions = [
-    { statement: "Reog berasal dari Ponorogo.", answer: true },
-    { statement: "Dadak Merak adalah makanan.", answer: false },
-    { statement: "Urbanisasi bisa mengurangi pelestarian budaya.", answer: true },
-    { statement: "Reog tidak punya nilai budaya.", answer: false }
-];
-
-function loadGameQuestion() {
-    const el = document.getElementById("statement");
-    if (el) el.textContent = gameQuestions[gameIndex].statement;
-}
-
-function checkGameAnswer(choice) {
-    const fb = document.getElementById("game-feedback");
-    if (!fb) return;
-
-    const correct = gameQuestions[gameIndex].answer;
-
-    if (choice === correct) {
-        fb.textContent = "✅ Benar!";
-        fb.style.color = "#22c55e";
-    } else {
-        fb.textContent = "❌ Salah!";
-        fb.style.color = "#ef4444";
-    }
-
-    // pindah soal
-    gameIndex++;
-
-    // 🔥 STOP kalau sudah habis
-    if (gameIndex >= gameQuestions.length) {
-        setTimeout(() => {
-            fb.textContent = "🎉 Game selesai! Semua soal sudah dijawab.";
-            fb.style.color = "#facc15";
-
-            document.getElementById("statement").textContent =
-                "Game selesai ✔";
-
-            // disable tombol
-            document.querySelectorAll("#game button").forEach(btn => {
-                btn.disabled = true;
-                btn.style.opacity = "0.5";
-                btn.style.cursor = "not-allowed";
-            });
-
-        }, 1000);
-
+    if(selectedAnswer !== null){
         return;
     }
 
-    setTimeout(() => {
-        fb.textContent = "";
-        loadGameQuestion();
-    }, 1000);
-}
+    selectedAnswer = index;
 
-function resetGame() {
-    gameIndex = 0;
+    const correct =
+        quizData[currentQuestion].correct;
 
-    document.querySelectorAll("#game button").forEach(btn => {
-        btn.disabled = false;
-        btn.style.opacity = "1";
-        btn.style.cursor = "pointer";
+    const options =
+        document.querySelectorAll(".option");
+
+    options.forEach((option,i)=>{
+
+        option.style.pointerEvents = "none";
+
+        if(i === correct){
+
+            option.style.background =
+                "#dcfce7";
+
+            option.style.border =
+                "2px solid #22c55e";
+
+        }
+
+        if(
+            i === index &&
+            index !== correct
+        ){
+
+            option.style.background =
+                "#fee2e2";
+
+            option.style.border =
+                "2px solid #ef4444";
+
+        }
+
     });
 
-    loadGameQuestion();
+    if(index === correct){
+        score++;
+    }
+
+    document.getElementById("score").textContent =
+        "Skor: " + score;
+
+    document.getElementById("next-btn").style.display =
+        "inline-block";
+
 }
+
+
+// ============================
+// NEXT QUESTION
+// ============================
+
+function nextQuestion() {
+
+    currentQuestion++;
+
+    if(
+        currentQuestion <
+        quizData.length
+    ){
+
+        loadQuestion();
+
+    } else {
+
+        showResult();
+
+    }
+
+}
+
+
+// ============================
+// HASIL AKHIR
+// ============================
+
+function showResult() {
+
+    document.getElementById("quiz-active").style.display =
+        "none";
+
+    document.getElementById("quiz-result").style.display =
+        "block";
+
+    const percentage =
+        Math.round(
+            (score / quizData.length) * 100
+        );
+
+    let message = "";
+
+    if(percentage >= 80){
+
+        message =
+        "🏆 Hebat! Kamu sangat memahami Reog Ponorogo.";
+
+    }else if(percentage >= 60){
+
+        message =
+        "👏 Bagus! Pengetahuanmu sudah cukup baik.";
+
+    }else{
+
+        message =
+        "📚 Ayo belajar lagi tentang Reog Ponorogo.";
+
+    }
+
+    document.getElementById("final-score").innerHTML = `
+        <h3>Nilai Akhir</h3>
+        <br>
+        <h1>${score}/${quizData.length}</h1>
+        <br>
+        <p>${percentage}%</p>
+        <br>
+        <p>${message}</p>
+    `;
+
+}
+
+
+// ============================
+// RESET QUIZ
+// ============================
+
+function restartQuiz() {
+
+    currentQuestion = 0;
+    score = 0;
+    selectedAnswer = null;
+
+    document.getElementById("quiz-result").style.display =
+        "none";
+
+    document.getElementById("quiz-start").style.display =
+        "block";
+
+}
+```
