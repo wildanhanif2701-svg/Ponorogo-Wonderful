@@ -1482,15 +1482,4 @@ footer p {
   .hud-item {
     font-size: 12px;
   }
-
-  .logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .logo-img {
-    width: 30px;
-    height: 30px;
-    object-fit: contain;
-  }
+}
