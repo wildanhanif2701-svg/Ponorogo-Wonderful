@@ -1,542 +1,801 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Art Of Ponorogo - Pelestarian Reog Ponorogo</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Art Of Ponorogo - Pelestarian Reog Ponorogo</title>
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;800&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-<!-- ========== NAVBAR ========== -->
-<nav id="navbar">
-  <div class="nav-container">
-
-    <!-- LOGO HOUSE KOTAK -->
-    <a href="#" class="logo" onclick="showPage('beranda'); return false;">
-      <img src="foto-house.png" alt="Logo Reog" class="logo-img">
-      <div class="logo-text-wrap">
-        <span class="logo-title">Art Of Ponorogo</span>
-        <span class="logo-sub">Pelestarian Budaya</span>
-      </div>
-    </a>
-
-    <!-- MENU DESKTOP -->
-    <div class="menu" id="desktop-menu">
-      <button class="nav-btn active" data-page="beranda" onclick="showPage('beranda')">
-        <i class="fas fa-home"></i> Beranda
-      </button>
-      <button class="nav-btn" data-page="profil" onclick="showPage('profil')">
-        <i class="fas fa-book-open"></i> Profil
-      </button>
-      <button class="nav-btn" data-page="tantangan" onclick="showPage('tantangan')">
-        <i class="fas fa-globe-asia"></i> Tantangan
-      </button>
-      <button class="nav-btn" data-page="artikel" onclick="showPage('artikel')">
-        <i class="fas fa-newspaper"></i> Artikel
-      </button>
-      <button class="nav-btn" data-page="video" onclick="showPage('video')">
-        <i class="fas fa-play-circle"></i> Video
-      </button>
-      <button class="nav-btn" data-page="quiz" onclick="showPage('quiz')">
-        <i class="fas fa-question-circle"></i> Quiz
-      </button>
-      <button class="nav-btn" data-page="game" onclick="showPage('game')">
-        <i class="fas fa-gamepad"></i> Game
-      </button>
-    </div>
-
-    <!-- HAMBURGER MOBILE -->
-    <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
-      <i class="fas fa-bars"></i>
-    </button>
-  </div>
-
-  <!-- MOBILE MENU -->
-  <div class="mobile-menu" id="mobile-menu">
-    <button onclick="showPage('beranda'); closeMobileMenu()"><i class="fas fa-home"></i> Beranda</button>
-    <button onclick="showPage('profil'); closeMobileMenu()"><i class="fas fa-book-open"></i> Profil</button>
-    <button onclick="showPage('tantangan'); closeMobileMenu()"><i class="fas fa-globe-asia"></i> Tantangan</button>
-    <button onclick="showPage('artikel'); closeMobileMenu()"><i class="fas fa-newspaper"></i> Artikel</button>
-    <button onclick="showPage('video'); closeMobileMenu()"><i class="fas fa-play-circle"></i> Video</button>
-    <button onclick="showPage('quiz'); closeMobileMenu()"><i class="fas fa-question-circle"></i> Quiz</button>
-    <button onclick="showPage('game'); closeMobileMenu()"><i class="fas fa-gamepad"></i> Game</button>
-  </div>
-</nav>
-
-<!-- ========== HALAMAN WRAPPER ========== -->
-<main id="app">
-
-  <!-- ===== BERANDA ===== -->
-  <div class="page active" id="page-beranda">
-
-    <!-- HERO -->
-    <section class="hero" id="hero-section">
-      <div class="hero-overlay"></div>
-      <div class="hero-content">
-        <div class="hero-badge"><i class="fas fa-mask"></i> Warisan Budaya Dunia</div>
-        <h1>ART OF <span>PONOROGO</span></h1>
-        <p>Merayakan warisan Reog Ponorogo &bull; Pelestarian budaya di era digital &bull; Membangun ekonomi kreatif berbasis kearifan lokal</p>
-        <div class="hero-btns">
-          <button class="btn-primary" onclick="showPage('profil')">
-            Jelajahi Warisan <i class="fas fa-arrow-right"></i>
-          </button>
-          <button class="btn-outline" onclick="showPage('game')">
-            <i class="fas fa-gamepad"></i> Main Game
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <!-- STATISTIK -->
-    <section class="stats-section">
-      <div class="section-title">
-        <h2>Reog Dalam Angka</h2>
-        <p>Warisan budaya yang terus berkembang</p>
-      </div>
-      <div class="stats-grid">
-        <div class="stat-card">
-          <i class="fas fa-mask"></i>
-          <h3>100+</h3>
-          <p>Grup Reog Aktif</p>
-        </div>
-        <div class="stat-card">
-          <i class="fas fa-users"></i>
-          <h3>50.000+</h3>
-          <p>Penonton Festival</p>
-        </div>
-        <div class="stat-card">
-          <i class="fas fa-school"></i>
-          <h3>200+</h3>
-          <p>Sekolah Ekstrakurikuler</p>
-        </div>
-        <div class="stat-card">
-          <i class="fas fa-globe-asia"></i>
-          <h3>20+</h3>
-          <p>Negara Menampilkan Reog</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- TIMELINE -->
-    <section class="timeline-section">
-      <div class="section-title">
-        <h2>Perjalanan Reog Ponorogo</h2>
-        <p>Dari masa ke masa</p>
-      </div>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="tl-dot"></div>
-          <div class="tl-content">
-            <h3>Abad ke-15</h3>
-            <p>Munculnya cerita Klono Sewandono dan Singo Barong sebagai simbol kekuatan.</p>
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- ========== NAVBAR ========== -->
+    <nav id="navbar">
+      <div class="nav-container">
+        <!-- LOGO HOUSE KOTAK -->
+        <a
+          href="#"
+          class="logo"
+          onclick="
+            showPage('beranda');
+            return false;
+          "
+        >
+          <img src="foto-house.png" alt="Logo Reog" class="logo-img" />
+          <div class="logo-text-wrap">
+            <span class="logo-title">Art Of Ponorogo</span>
+            <span class="logo-sub">Pelestarian Budaya</span>
           </div>
-        </div>
-        <div class="timeline-item">
-          <div class="tl-dot"></div>
-          <div class="tl-content">
-            <h3>Era Kerajaan</h3>
-            <p>Digunakan sebagai media kritik sosial dan perlawanan budaya.</p>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="tl-dot"></div>
-          <div class="tl-content">
-            <h3>Era Modern</h3>
-            <p>Menjadi ikon Kabupaten Ponorogo yang diakui secara nasional.</p>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="tl-dot"></div>
-          <div class="tl-content">
-            <h3>Era Digital</h3>
-            <p>Reog dipromosikan melalui media sosial dan teknologi digital.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="cta-section">
-      <h2>Mari Lestarikan Reog Ponorogo</h2>
-      <p>Generasi muda memiliki peran penting dalam menjaga warisan budaya Indonesia agar tetap hidup dan dikenal dunia.</p>
-      <button class="btn-primary" onclick="showPage('quiz')">
-        Ikuti Quiz Sekarang <i class="fas fa-arrow-right"></i>
-      </button>
-    </section>
-
-  </div><!-- /page-beranda -->
-
-
-  <!-- ===== PROFIL ===== -->
-  <div class="page" id="page-profil">
-
-    <section class="page-hero profil-hero">
-      <div class="page-hero-content">
-        <div class="hero-badge"><i class="fas fa-landmark"></i> Sejarah & Budaya</div>
-        <h1>Tentang <span>Ponorogo</span></h1>
-        <p>Bumi Reog yang penuh sejarah dan kebanggaan sejak abad ke-15</p>
-      </div>
-    </section>
-
-    <section class="content-section">
-      <div class="about-grid">
-        <div class="about-img-wrap">
-          <img src="foto-reog.jpeg" alt="Reog Ponorogo" class="about-img">
-          <div class="about-img-caption">Penampilan Reog Ponorogo yang memukau</div>
-        </div>
-        <div class="about-text">
-          <h3><i class="fas fa-map-marker-alt"></i> Sejarah Berdirinya</h3>
-          <p>Kadipaten Ponorogo berdiri pada tanggal <strong>11 Agustus 1496 Masehi</strong>, tanggal inilah yang kemudian ditetapkan sebagai hari jadi kota Ponorogo. Penetapan tanggal ini merupakan kajian mendalam atas dasar bukti peninggalan benda-benda purbakala di daerah Ponorogo dan sekitarnya, juga mengacu pada buku Hand book of Oriental History, sehingga dapat ditemukan hari wisuda Bathoro Katong sebagai Adipati Kadipaten Ponorogo. Bathoro Katong adalah pendiri Kadipaten Ponorogo yang selanjutnya berkembang menjadi Kabupaten Ponorogo.</p>
-          <h3><i class="fas fa-mask"></i> Bumi Reog Ponorogo</h3>
-          <p>Kabupaten Ponorogo dikenal sebagai pusat lahirnya kesenian Reog Ponorogo yang mendunia — pertunjukan seni budaya paling megah dari Jawa Timur dengan topeng Singo Barong yang bisa mencapai berat 50 kilogram.</p>
-          <h3><i class="fas fa-mosque"></i> Kota Santri</h3>
-          <p>Selain sebagai Kota Reog, Ponorogo juga dikenal sebagai <strong>Kota Santri</strong> dengan ribuan santri yang menjaga tradisi dan nilai-nilai keislaman yang kuat.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- KARAKTER REOG -->
-    <section class="content-section bg-dark-section">
-      <div class="section-title light">
-        <h2>Karakter Utama Reog</h2>
-        <p>Tokoh-tokoh ikonik dalam pertunjukan Reog Ponorogo</p>
-      </div>
-      <div class="karakter-grid">
-        <div class="karakter-card">
-          <div class="karakter-icon">👑</div>
-          <h3>Prabu Klono Sewandono</h3>
-          <p>Raja sakti dari Kerajaan Bantarangin. Pencipta Reog untuk meminang Dewi Songgolangit dengan senjata sakral Pecut Samandiman.</p>
-        </div>
-        <div class="karakter-card">
-          <div class="karakter-icon">🦁</div>
-          <h3>Singo Barong</h3>
-          <p>Topeng kepala singa dengan mahkota burung merak. Simbol kekuatan dan kecerdikan yang bersatu, bisa mencapai berat 50 kg.</p>
-        </div>
-        <div class="karakter-card">
-          <div class="karakter-icon">⚡</div>
-          <h3>Warok</h3>
-          <p>Pengawal kharismatik yang merepresentasikan kekuatan spiritual. Dikenal dengan kekuatan fisik dan ilmu batin yang tinggi.</p>
-        </div>
-        <div class="karakter-card">
-          <div class="karakter-icon">🤡</div>
-          <h3>Bujang Ganong</h3>
-          <p>Patih Pujangga Anom yang lincah dan jenaka. Penari dengan gerakan akrobatik yang memukau penonton.</p>
-        </div>
-        <div class="karakter-card">
-          <div class="karakter-icon">🐴</div>
-          <h3>Jathil</h3>
-          <p>Penunggang kuda putih yang energik. Menampilkan tarian berkuda yang anggun dan bersemangat.</p>
-        </div>
-        <div class="karakter-card">
-          <div class="karakter-icon">🥁</div>
-          <h3>Pengiring Musik</h3>
-          <p>Gamelan, kendang, dan terompet reog yang khas menciptakan atmosfer magis dalam setiap pertunjukan.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- GALERI -->
-    <section class="content-section">
-      <div class="section-title">
-        <h2>Galeri Reog Ponorogo</h2>
-        <p>Keindahan budaya yang mendunia</p>
-      </div>
-      <!-- Gunakan tag <a> agar bisa membuka link eksternal -->
-      <div style="text-align: center; margin-top: 20px;">
-        <a href="https://framevr.io/redhouse" target="_blank" class="btn-primary" style="text-decoration: none;">
-            Lihat Musium <i class="fas fa-arrow-right"></i>
         </a>
-      </div>
-    </section>
 
-  </div><!-- /page-profil -->
-
-
-  <!-- ===== TANTANGAN ===== -->
-  <div class="page" id="page-tantangan">
-
-    <section class="page-hero tantangan-hero">
-      <div class="page-hero-content">
-        <div class="hero-badge"><i class="fas fa-exclamation-triangle"></i> Isu & Peluang</div>
-        <h1>Tantangan <span>Kearifan Lokal</span></h1>
-        <p>Permasalahan dan peluang pelestarian budaya Reog Ponorogo</p>
-      </div>
-    </section>
-
-    <section class="content-section">
-      <div class="tantangan-grid">
-        <div class="tantangan-card danger">
-          <div class="t-icon-wrap"><i class="fas fa-globe-asia"></i></div>
-          <h3>Globalisasi</h3>
-          <p>Reog bukan sekadar tarian, tapi mengandung nilai wirasasra dan wiramuda. Di era globalisasi, nilai-nilai ini sering hanya menjadi hiburan visual demi menarik turis mancanegara, sehingga nilai sakralnya luntur. Teknologi bisa menjadi wadah namun mengurangi pengalaman langsung di alun-alun.</p>
-          <span class="t-tag merah">Nilai Budaya Terancam</span>
-        </div>
-        <div class="tantangan-card warning">
-          <div class="t-icon-wrap"><i class="fas fa-city"></i></div>
-          <h3>Urbanisasi</h3>
-          <p>Tradisi nyadran dan sedekah bumi sangat bergantung pada kebersamaan warga desa. Banyak pemuda Ponorogo merantau ke kota besar, hingga menyebabkan kekurangan tenaga untuk menyelenggarakan ritual yang sifatnya gotong royong.</p>
-          <span class="t-tag emas">Sumber Daya Manusia</span>
-        </div>
-        <div class="tantangan-card warning">
-          <div class="t-icon-wrap"><i class="fas fa-laptop"></i></div>
-          <h3>Perkembangan Teknologi</h3>
-          <p>Hiburan digital menggeser perhatian masyarakat dari seni tradisional. Kesenjangan literasi digital dan pergeseran minat ke media digital juga menyebabkan waktu untuk belajar seni tradisional berkurang.</p>
-          <span class="t-tag emas">Persaingan Digital</span>
-        </div>
-        <div class="tantangan-card danger">
-          <div class="t-icon-wrap"><i class="fas fa-user-graduate"></i></div>
-          <h3>Regenerasi Seniman</h3>
-          <p>Minat generasi muda terhadap seni Reog menurun. Butuh pendekatan kreatif untuk menarik generasi Z agar mau belajar dan melestarikan seni budaya Ponorogo secara sungguh-sungguh.</p>
-          <span class="t-tag merah">Regenerasi</span>
-        </div>
-        <div class="tantangan-card danger">
-          <div class="t-icon-wrap"><i class="fas fa-coins"></i></div>
-          <h3>Pendanaan Seni</h3>
-          <p>Biaya produksi kostum Reog sangat tinggi. Topeng Singo Barong yang autentik bisa menghabiskan puluhan juta rupiah, membebani grup-grup Reog kecil di desa-desa Ponorogo.</p>
-          <span class="t-tag merah">Ekonomi Budaya</span>
-        </div>
-        <div class="tantangan-card success">
-          <div class="t-icon-wrap"><i class="fas fa-rocket"></i></div>
-          <h3>Peluang Digital</h3>
-          <p>Teknologi bisa menjadi solusi: platform streaming, konten edukatif, media sosial, dan kolaborasi dengan seniman modern dapat memperluas jangkauan Reog ke seluruh dunia.</p>
-          <span class="t-tag hijau">Peluang Positif</span>
-        </div>
-      </div>
-    </section>
-
-  </div><!-- /page-tantangan -->
-
-
-  <!-- ===== ARTIKEL ===== -->
-  <div class="page" id="page-artikel">
-
-    <section class="page-hero artikel-hero">
-      <div class="page-hero-content">
-        <div class="hero-badge"><i class="fas fa-newspaper"></i> Artikel Budaya</div>
-        <h1>Reog <span>Di Era Digital</span></h1>
-        <p>Menelusuri perjalanan seni Reog yang terus hidup melampaui zamannya</p>
-      </div>
-    </section>
-
-    <section class="content-section">
-      <div class="artikel-wrap">
-
-        <div class="artikel-meta">
-          <span class="artikel-tag"><i class="fas fa-tag"></i> Budaya Lokal</span>
-          <span class="artikel-tag"><i class="fas fa-calendar"></i> Mei 2025</span>
-          <span class="artikel-tag"><i class="fas fa-link"></i> Kompasiana</span>
-        </div>
-
-        <div class="artikel-img-hero">
-          <img src="foto-anom.png" alt="Reog Ponorogo">
-          <div class="artikel-img-caption">Penampilan spektakuler Reog Ponorogo</div>
-        </div>
-
-        <div class="artikel-body">
-          <h2>Sejarah Reog Ponorogo</h2>
-          <p>Reog Ponorogo bukan sekadar pertunjukan seni, tetapi juga bagian dari identitas budaya yang kuat dan penuh makna. Setiap gerakan, kostum, dan alunan musiknya mengandung nilai filosofis tentang kekuatan, kecerdikan, serta kreativitas.</p>
-          <p>Di balik kemegahan tariannya, tersimpan kisah Prabu Klono Sewandono, seorang raja sakti dari Kerajaan Bantarangin yang berusaha meminang Dewi Songgolangit. Namun, syarat yang diajukan sang putri tidaklah mudah — ia meminta tarian yang belum pernah ada sebelumnya, dengan binatang berkepala dua.</p>
-          <p>Demi memenuhi permintaan tersebut, Prabu Klono Sewandono menciptakan Reog Ponorogo, menghadirkan sosok Singo Barong, makhluk berkepala singa dengan mahkota merak di atasnya — sebuah simbol kekuatan dan kecerdikan yang bersatu dalam pertunjukan megah.</p>
-
-          <h2>Pertunjukan Reog</h2>
-          <p>Pertunjukan Reog mencapai puncaknya ketika Prabu Klono Sewandono dan Singo Barong bertarung, diawali dengan kemunculan Jathil, para penunggang kuda putih yang energik, lalu diikuti oleh Warok, pengawal kharismatik yang merepresentasikan kekuatan spiritual.</p>
-          <p>Dengan Pecut Samandiman, senjata sakral berbentuk tongkat rotan berhias jebug merah dan kuning, Prabu Klono Sewandono akhirnya menaklukkan Singo Barong.</p>
-          <p>Reog tidak hanya menjadi seni pertunjukan, tetapi juga bagian dari tradisi sakral Gerbeksurau, sebuah ritual penghormatan terhadap pusaka yang dikirab dan dimandikan pada malam satu surau. Malam ini juga menjadi ajang Festival Reog Mini dan Festival Reog Nasional.</p>
-
-          <h2>Reog Ponorogo Di Era Teknologi</h2>
-          <p>Seiring perkembangan zaman, muncul pertanyaan besar mengenai kelangsungan Reog Ponorogo. Banyak pihak yang khawatir apakah seni ini mampu bertahan menghadapi modernisasi atau justru tergeser oleh hiburan digital.</p>
-          <p>Namun, hingga saat ini, antusiasme masyarakat terhadap Reog masih tinggi. Festival Reog Mini dan Festival Reog Nasional tetap menarik banyak penonton, termasuk mahasiswa dari Universitas Brawijaya.</p>
-
-          <h2>Pertunjukan Spesial: Drama-Tari di Bawah Bulan Purnama</h2>
-          <p>UKM PSRM Sardulo Anorogo mempersembahkan pertunjukan drama-tari spektakuler di bawah keindahan bulan purnama. Acara berlangsung pada Sabtu, 17 Mei 2025, bertempat di Panggung Gedung Ir. Soekarno, mulai pukul 19:30.</p>
-          <p>Melalui perpaduan antara tradisi, teknologi, dan komunitas, Reog Ponorogo tetap tegak sebagai warisan budaya yang akan terus hidup. Seni ini tidak hanya sekadar warisan masa lalu, tetapi juga bagian dari identitas yang harus terus dirawat dan dilestarikan.</p>
-
-          <div class="artikel-sumber">
-            <i class="fas fa-external-link-alt"></i> Sumber: <a href="https://kompasiana.com" target="_blank">kompasiana.com</a>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-  </div><!-- /page-artikel -->
-
-
-  <!-- ===== VIDEO ===== -->
-  <div class="page" id="page-video">
-
-    <section class="page-hero video-hero">
-      <div class="page-hero-content">
-        <div class="hero-badge"><i class="fas fa-play-circle"></i> Media Edukasi</div>
-        <h1>Video <span>Edukasi</span></h1>
-        <p>Media pembelajaran interaktif budaya Reog Ponorogo</p>
-      </div>
-    </section>
-
-    <section class="content-section">
-      <div class="video-container">
-        <div class="video-frame-wrap">
-          <iframe
-            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-            title="Video Reog Ponorogo"
-            allowfullscreen>
-          </iframe>
-        </div>
-        <div class="video-info">
-          <span class="video-badge">🎬 VIDEO EDUKASI BUDAYA</span>
-          <h2>Mengenal Reog Ponorogo: Warisan Budaya Dunia</h2>
-          <p>Saksikan kemegahan pertunjukan Reog Ponorogo dan pelajari nilai-nilai budaya yang terkandung di dalamnya.</p>
-        </div>
-      </div>
-    </section>
-
-  </div><!-- /page-video -->
-
-
-  <!-- ===== QUIZ ===== -->
-  <div class="page" id="page-quiz">
-
-    <section class="page-hero quiz-hero">
-      <div class="page-hero-content">
-        <div class="hero-badge"><i class="fas fa-question-circle"></i> Uji Pengetahuan</div>
-        <h1>Quiz <span>Reog Ponorogo</span></h1>
-        <p>20 soal pilihan ganda tentang budaya Ponorogo</p>
-      </div>
-    </section>
-
-    <section class="content-section">
-      <div class="quiz-container">
-
-        <!-- Start Screen -->
-        <div id="quiz-start">
-          <div class="quiz-start-card">
-            <div class="quiz-start-icon">🎭</div>
-            <h2>Siap Uji Pengetahuan?</h2>
-            <p>Jawab 20 soal tentang Reog Ponorogo dan dapatkan nilai terbaik kamu!</p>
-            <div class="quiz-rules">
-              <div class="rule-item"><i class="fas fa-list-ol"></i> 20 Soal Pilihan Ganda</div>
-              <div class="rule-item"><i class="fas fa-check-circle"></i> Langsung Tahu Jawaban Benar</div>
-              <div class="rule-item"><i class="fas fa-trophy"></i> Nilai Akhir 0–100</div>
-            </div>
-            <button class="btn-primary big-btn" onclick="startQuiz()">
-              Mulai Quiz <i class="fas fa-arrow-right"></i>
-            </button>
-          </div>
-        </div>
-
-        <!-- Active Quiz -->
-        <div id="quiz-active" style="display:none;">
-          <div class="quiz-card">
-            <div class="quiz-info-bar">
-              <span class="q-counter">Soal <span id="current-q">1</span>/20</span>
-              <span class="q-score-badge" id="score">Skor: 0</span>
-            </div>
-            <div class="quiz-progress">
-              <div class="quiz-progress-fill" id="quiz-progress-fill"></div>
-            </div>
-            <p class="question-text" id="question-text"></p>
-            <div class="options-grid" id="options"></div>
-            <button id="next-btn" class="btn-primary" onclick="nextQuestion()" style="display:none; margin-top:20px;">
-              Soal Berikutnya <i class="fas fa-arrow-right"></i>
-            </button>
-          </div>
-        </div>
-
-        <!-- Result -->
-        <div id="quiz-result" style="display:none;">
-          <div class="quiz-result-card">
-            <div class="result-trophy">🏆</div>
-            <h2>Quiz Selesai!</h2>
-            <div class="result-score-wrap">
-              <div class="result-score-big" id="final-score-num">0</div>
-              <div class="result-score-label" id="final-score-text"></div>
-            </div>
-            <button class="btn-primary big-btn" onclick="restartQuiz()">
-              <i class="fas fa-redo"></i> Ulangi Quiz
-            </button>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-  </div><!-- /page-quiz -->
-
-
-  <!-- ===== GAME ===== -->
-  <div class="page" id="page-game">
-
-    <section class="page-hero game-hero">
-      <div class="page-hero-content">
-        <div class="hero-badge"><i class="fas fa-gamepad"></i> Mini Game</div>
-        <h1>Game <span>Warok</span></h1>
-        <p>Bantu Warok melompat, kumpulkan topeng, dan hindari keris musuh!</p>
-      </div>
-    </section>
-
-    <section class="content-section">
-      <div class="game-wrapper">
-
-        <div class="game-header-bar">
-          <div class="game-title-text">🦁 WAROK JAGA PONOROGO</div>
-          <div class="game-hud">
-            <div class="hud-item">Skor: <span id="g-score">0</span></div>
-            <div class="hud-item">Level: <span id="g-level">1</span></div>
-            <div class="hud-item">Nyawa: <span id="g-lives">❤️❤️❤️</span></div>
-          </div>
-        </div>
-
-        <canvas id="game-canvas" width="800" height="400"></canvas>
-
-        <div class="game-controls">
-          <button class="game-btn-main" id="start-btn" onclick="startGame()">
-            <i class="fas fa-play"></i> Mulai Game
+        <!-- MENU DESKTOP -->
+        <div class="menu" id="desktop-menu">
+          <button
+            class="nav-btn active"
+            data-page="beranda"
+            onclick="showPage('beranda')"
+          >
+            <i class="fas fa-home"></i> Beranda
           </button>
-          <button class="game-btn-ghost" onclick="resetGame()">
-            <i class="fas fa-redo"></i> Reset
+          <button
+            class="nav-btn"
+            data-page="profil"
+            onclick="showPage('profil')"
+          >
+            <i class="fas fa-book-open"></i> Profil
+          </button>
+          <button
+            class="nav-btn"
+            data-page="tantangan"
+            onclick="showPage('tantangan')"
+          >
+            <i class="fas fa-globe-asia"></i> Tantangan
+          </button>
+          <button
+            class="nav-btn"
+            data-page="artikel"
+            onclick="showPage('artikel')"
+          >
+            <i class="fas fa-newspaper"></i> Artikel
+          </button>
+          <button class="nav-btn" data-page="video" onclick="showPage('video')">
+            <i class="fas fa-play-circle"></i> Video
+          </button>
+          <button class="nav-btn" data-page="quiz" onclick="showPage('quiz')">
+            <i class="fas fa-question-circle"></i> Quiz
+          </button>
+          <button class="nav-btn" data-page="game" onclick="showPage('game')">
+            <i class="fas fa-gamepad"></i> Game
           </button>
         </div>
 
-        <div class="game-how-to">
-          <i class="fas fa-info-circle"></i>
-          Tekan <kbd>Spasi</kbd> atau <strong>Klik/Tap</strong> layar untuk loncat &bull;
-          Kumpulkan topeng <strong>🎭</strong> (+10 poin) &bull;
-          Hindari keris <strong>⚔️</strong>
+        <!-- HAMBURGER MOBILE -->
+        <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+
+      <!-- MOBILE MENU -->
+      <div class="mobile-menu" id="mobile-menu">
+        <button
+          onclick="
+            showPage('beranda');
+            closeMobileMenu();
+          "
+        >
+          <i class="fas fa-home"></i> Beranda
+        </button>
+        <button
+          onclick="
+            showPage('profil');
+            closeMobileMenu();
+          "
+        >
+          <i class="fas fa-book-open"></i> Profil
+        </button>
+        <button
+          onclick="
+            showPage('tantangan');
+            closeMobileMenu();
+          "
+        >
+          <i class="fas fa-globe-asia"></i> Tantangan
+        </button>
+        <button
+          onclick="
+            showPage('artikel');
+            closeMobileMenu();
+          "
+        >
+          <i class="fas fa-newspaper"></i> Artikel
+        </button>
+        <button
+          onclick="
+            showPage('video');
+            closeMobileMenu();
+          "
+        >
+          <i class="fas fa-play-circle"></i> Video
+        </button>
+        <button
+          onclick="
+            showPage('quiz');
+            closeMobileMenu();
+          "
+        >
+          <i class="fas fa-question-circle"></i> Quiz
+        </button>
+        <button
+          onclick="
+            showPage('game');
+            closeMobileMenu();
+          "
+        >
+          <i class="fas fa-gamepad"></i> Game
+        </button>
+      </div>
+    </nav>
+
+    <!-- ========== HALAMAN WRAPPER ========== -->
+    <main id="app">
+      <!-- ===== BERANDA ===== -->
+      <div class="page active" id="page-beranda">
+        <!-- HERO -->
+        <section class="hero" id="hero-section">
+          <div class="hero-overlay"></div>
+          <div class="hero-content">
+            <div class="hero-badge">
+              <i class="fas fa-mask"></i> Warisan Budaya Dunia
+            </div>
+            <h1>ART OF <span>PONOROGO</span></h1>
+            <p>
+              Merayakan warisan Reog Ponorogo &bull; Pelestarian budaya di era
+              digital &bull; Membangun ekonomi kreatif berbasis kearifan lokal
+            </p>
+            <div class="hero-btns">
+              <button class="btn-primary" onclick="showPage('profil')">
+                Jelajahi Warisan <i class="fas fa-arrow-right"></i>
+              </button>
+              <button class="btn-outline" onclick="showPage('game')">
+                <i class="fas fa-gamepad"></i> Main Game
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- STATISTIK -->
+        <section class="stats-section">
+          <div class="section-title">
+            <h2>Reog Dalam Angka</h2>
+            <p>Warisan budaya yang terus berkembang</p>
+          </div>
+          <div class="stats-grid">
+            <div class="stat-card">
+              <i class="fas fa-mask"></i>
+              <h3>100+</h3>
+              <p>Grup Reog Aktif</p>
+            </div>
+            <div class="stat-card">
+              <i class="fas fa-users"></i>
+              <h3>50.000+</h3>
+              <p>Penonton Festival</p>
+            </div>
+            <div class="stat-card">
+              <i class="fas fa-school"></i>
+              <h3>200+</h3>
+              <p>Sekolah Ekstrakurikuler</p>
+            </div>
+            <div class="stat-card">
+              <i class="fas fa-globe-asia"></i>
+              <h3>20+</h3>
+              <p>Negara Menampilkan Reog</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- TIMELINE -->
+        <section class="timeline-section">
+          <div class="section-title">
+            <h2>Perjalanan Reog Ponorogo</h2>
+            <p>Dari masa ke masa</p>
+          </div>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="tl-dot"></div>
+              <div class="tl-content">
+                <h3>Abad ke-15</h3>
+                <p>
+                  Munculnya cerita Klono Sewandono dan Singo Barong sebagai
+                  simbol kekuatan.
+                </p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="tl-dot"></div>
+              <div class="tl-content">
+                <h3>Era Kerajaan</h3>
+                <p>
+                  Digunakan sebagai media kritik sosial dan perlawanan budaya.
+                </p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="tl-dot"></div>
+              <div class="tl-content">
+                <h3>Era Modern</h3>
+                <p>
+                  Menjadi ikon Kabupaten Ponorogo yang diakui secara nasional.
+                </p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="tl-dot"></div>
+              <div class="tl-content">
+                <h3>Era Digital</h3>
+                <p>
+                  Reog dipromosikan melalui media sosial dan teknologi digital.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-section">
+          <h2>Mari Lestarikan Reog Ponorogo</h2>
+          <p>
+            Generasi muda memiliki peran penting dalam menjaga warisan budaya
+            Indonesia agar tetap hidup dan dikenal dunia.
+          </p>
+          <button class="btn-primary" onclick="showPage('quiz')">
+            Ikuti Quiz Sekarang <i class="fas fa-arrow-right"></i>
+          </button>
+        </section>
+      </div>
+      <!-- /page-beranda -->
+
+      <!-- ===== PROFIL ===== -->
+      <div class="page" id="page-profil">
+        <section class="page-hero profil-hero">
+          <div class="page-hero-content">
+            <div class="hero-badge">
+              <i class="fas fa-landmark"></i> Sejarah & Budaya
+            </div>
+            <h1>Tentang <span>Ponorogo</span></h1>
+            <p>Bumi Reog yang penuh sejarah dan kebanggaan sejak abad ke-15</p>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="about-grid">
+            <div class="about-img-wrap">
+              <img src="foto-reog.jpeg" alt="Reog Ponorogo" class="about-img" />
+              <div class="about-img-caption">
+                Penampilan Reog Ponorogo yang memukau
+              </div>
+            </div>
+            <div class="about-text">
+              <h3><i class="fas fa-map-marker-alt"></i> Sejarah Berdirinya</h3>
+              <p>
+                Kadipaten Ponorogo berdiri pada tanggal
+                <strong>11 Agustus 1496 Masehi</strong>, tanggal inilah yang
+                kemudian ditetapkan sebagai hari jadi kota Ponorogo. Penetapan
+                tanggal ini merupakan kajian mendalam atas dasar bukti
+                peninggalan benda-benda purbakala di daerah Ponorogo dan
+                sekitarnya, juga mengacu pada buku Hand book of Oriental
+                History, sehingga dapat ditemukan hari wisuda Bathoro Katong
+                sebagai Adipati Kadipaten Ponorogo. Bathoro Katong adalah
+                pendiri Kadipaten Ponorogo yang selanjutnya berkembang menjadi
+                Kabupaten Ponorogo.
+              </p>
+              <h3><i class="fas fa-mask"></i> Bumi Reog Ponorogo</h3>
+              <p>
+                Kabupaten Ponorogo dikenal sebagai pusat lahirnya kesenian Reog
+                Ponorogo yang mendunia — pertunjukan seni budaya paling megah
+                dari Jawa Timur dengan topeng Singo Barong yang bisa mencapai
+                berat 50 kilogram.
+              </p>
+              <h3><i class="fas fa-mosque"></i> Kota Santri</h3>
+              <p>
+                Selain sebagai Kota Reog, Ponorogo juga dikenal sebagai
+                <strong>Kota Santri</strong> dengan ribuan santri yang menjaga
+                tradisi dan nilai-nilai keislaman yang kuat.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- KARAKTER REOG -->
+        <section class="content-section bg-dark-section">
+          <div class="section-title light">
+            <h2>Karakter Utama Reog</h2>
+            <p>Tokoh-tokoh ikonik dalam pertunjukan Reog Ponorogo</p>
+          </div>
+          <div class="karakter-grid">
+            <div class="karakter-card">
+              <div class="karakter-icon">👑</div>
+              <h3>Prabu Klono Sewandono</h3>
+              <p>
+                Raja sakti dari Kerajaan Bantarangin. Pencipta Reog untuk
+                meminang Dewi Songgolangit dengan senjata sakral Pecut
+                Samandiman.
+              </p>
+            </div>
+            <div class="karakter-card">
+              <div class="karakter-icon">🦁</div>
+              <h3>Singo Barong</h3>
+              <p>
+                Topeng kepala singa dengan mahkota burung merak. Simbol kekuatan
+                dan kecerdikan yang bersatu, bisa mencapai berat 50 kg.
+              </p>
+            </div>
+            <div class="karakter-card">
+              <div class="karakter-icon">⚡</div>
+              <h3>Warok</h3>
+              <p>
+                Pengawal kharismatik yang merepresentasikan kekuatan spiritual.
+                Dikenal dengan kekuatan fisik dan ilmu batin yang tinggi.
+              </p>
+            </div>
+            <div class="karakter-card">
+              <div class="karakter-icon">🤡</div>
+              <h3>Bujang Ganong</h3>
+              <p>
+                Patih Pujangga Anom yang lincah dan jenaka. Penari dengan
+                gerakan akrobatik yang memukau penonton.
+              </p>
+            </div>
+            <div class="karakter-card">
+              <div class="karakter-icon">🐴</div>
+              <h3>Jathil</h3>
+              <p>
+                Penunggang kuda putih yang energik. Menampilkan tarian berkuda
+                yang anggun dan bersemangat.
+              </p>
+            </div>
+            <div class="karakter-card">
+              <div class="karakter-icon">🥁</div>
+              <h3>Pengiring Musik</h3>
+              <p>
+                Gamelan, kendang, dan terompet reog yang khas menciptakan
+                atmosfer magis dalam setiap pertunjukan.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- GALERI -->
+        <section class="content-section">
+          <div class="section-title">
+            <h2>Galeri Reog Ponorogo</h2>
+            <p>Keindahan budaya yang mendunia</p>
+          </div>
+          <!-- Gunakan tag <a> agar bisa membuka link eksternal -->
+          <div style="text-align: center; margin-top: 20px">
+            <a
+              href="https://framevr.io/redhouse"
+              target="_blank"
+              class="btn-primary"
+              style="text-decoration: none"
+            >
+              Lihat Musium <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </section>
+      </div>
+      <!-- /page-profil -->
+
+      <!-- ===== TANTANGAN ===== -->
+      <div class="page" id="page-tantangan">
+        <section class="page-hero tantangan-hero">
+          <div class="page-hero-content">
+            <div class="hero-badge">
+              <i class="fas fa-exclamation-triangle"></i> Isu & Peluang
+            </div>
+            <h1>Tantangan <span>Kearifan Lokal</span></h1>
+            <p>Permasalahan dan peluang pelestarian budaya Reog Ponorogo</p>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="tantangan-grid">
+            <div class="tantangan-card danger">
+              <div class="t-icon-wrap"><i class="fas fa-globe-asia"></i></div>
+              <h3>Globalisasi</h3>
+              <p>
+                Reog bukan sekadar tarian, tapi mengandung nilai wirasasra dan
+                wiramuda. Di era globalisasi, nilai-nilai ini sering hanya
+                menjadi hiburan visual demi menarik turis mancanegara, sehingga
+                nilai sakralnya luntur. Teknologi bisa menjadi wadah namun
+                mengurangi pengalaman langsung di alun-alun.
+              </p>
+              <span class="t-tag merah">Nilai Budaya Terancam</span>
+            </div>
+            <div class="tantangan-card warning">
+              <div class="t-icon-wrap"><i class="fas fa-city"></i></div>
+              <h3>Urbanisasi</h3>
+              <p>
+                Tradisi nyadran dan sedekah bumi sangat bergantung pada
+                kebersamaan warga desa. Banyak pemuda Ponorogo merantau ke kota
+                besar, hingga menyebabkan kekurangan tenaga untuk
+                menyelenggarakan ritual yang sifatnya gotong royong.
+              </p>
+              <span class="t-tag emas">Sumber Daya Manusia</span>
+            </div>
+            <div class="tantangan-card warning">
+              <div class="t-icon-wrap"><i class="fas fa-laptop"></i></div>
+              <h3>Perkembangan Teknologi</h3>
+              <p>
+                Hiburan digital menggeser perhatian masyarakat dari seni
+                tradisional. Kesenjangan literasi digital dan pergeseran minat
+                ke media digital juga menyebabkan waktu untuk belajar seni
+                tradisional berkurang.
+              </p>
+              <span class="t-tag emas">Persaingan Digital</span>
+            </div>
+            <div class="tantangan-card danger">
+              <div class="t-icon-wrap">
+                <i class="fas fa-user-graduate"></i>
+              </div>
+              <h3>Regenerasi Seniman</h3>
+              <p>
+                Minat generasi muda terhadap seni Reog menurun. Butuh pendekatan
+                kreatif untuk menarik generasi Z agar mau belajar dan
+                melestarikan seni budaya Ponorogo secara sungguh-sungguh.
+              </p>
+              <span class="t-tag merah">Regenerasi</span>
+            </div>
+            <div class="tantangan-card danger">
+              <div class="t-icon-wrap"><i class="fas fa-coins"></i></div>
+              <h3>Pendanaan Seni</h3>
+              <p>
+                Biaya produksi kostum Reog sangat tinggi. Topeng Singo Barong
+                yang autentik bisa menghabiskan puluhan juta rupiah, membebani
+                grup-grup Reog kecil di desa-desa Ponorogo.
+              </p>
+              <span class="t-tag merah">Ekonomi Budaya</span>
+            </div>
+            <div class="tantangan-card success">
+              <div class="t-icon-wrap"><i class="fas fa-rocket"></i></div>
+              <h3>Peluang Digital</h3>
+              <p>
+                Teknologi bisa menjadi solusi: platform streaming, konten
+                edukatif, media sosial, dan kolaborasi dengan seniman modern
+                dapat memperluas jangkauan Reog ke seluruh dunia.
+              </p>
+              <span class="t-tag hijau">Peluang Positif</span>
+            </div>
+          </div>
+        </section>
+      </div>
+      <!-- /page-tantangan -->
+
+      <!-- ===== ARTIKEL ===== -->
+      <div class="page" id="page-artikel">
+        <section class="page-hero artikel-hero">
+          <div class="page-hero-content">
+            <div class="hero-badge">
+              <i class="fas fa-newspaper"></i> Artikel Budaya
+            </div>
+            <h1>Reog <span>Di Era Digital</span></h1>
+            <p>
+              Menelusuri perjalanan seni Reog yang terus hidup melampaui
+              zamannya
+            </p>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="artikel-wrap">
+            <div class="artikel-meta">
+              <span class="artikel-tag"
+                ><i class="fas fa-tag"></i> Budaya Lokal</span
+              >
+              <span class="artikel-tag"
+                ><i class="fas fa-calendar"></i> Mei 2025</span
+              >
+              <span class="artikel-tag"
+                ><i class="fas fa-link"></i> Kompasiana</span
+              >
+            </div>
+
+            <div class="artikel-img-hero">
+              <img src="foto-anom.png" alt="Reog Ponorogo" />
+              <div class="artikel-img-caption">
+                Penampilan spektakuler Reog Ponorogo
+              </div>
+            </div>
+
+            <div class="artikel-body">
+              <h2>Sejarah Reog Ponorogo</h2>
+              <p>
+                Reog Ponorogo bukan sekadar pertunjukan seni, tetapi juga bagian
+                dari identitas budaya yang kuat dan penuh makna. Setiap gerakan,
+                kostum, dan alunan musiknya mengandung nilai filosofis tentang
+                kekuatan, kecerdikan, serta kreativitas.
+              </p>
+              <p>
+                Di balik kemegahan tariannya, tersimpan kisah Prabu Klono
+                Sewandono, seorang raja sakti dari Kerajaan Bantarangin yang
+                berusaha meminang Dewi Songgolangit. Namun, syarat yang diajukan
+                sang putri tidaklah mudah — ia meminta tarian yang belum pernah
+                ada sebelumnya, dengan binatang berkepala dua.
+              </p>
+              <p>
+                Demi memenuhi permintaan tersebut, Prabu Klono Sewandono
+                menciptakan Reog Ponorogo, menghadirkan sosok Singo Barong,
+                makhluk berkepala singa dengan mahkota merak di atasnya — sebuah
+                simbol kekuatan dan kecerdikan yang bersatu dalam pertunjukan
+                megah.
+              </p>
+
+              <h2>Pertunjukan Reog</h2>
+              <p>
+                Pertunjukan Reog mencapai puncaknya ketika Prabu Klono Sewandono
+                dan Singo Barong bertarung, diawali dengan kemunculan Jathil,
+                para penunggang kuda putih yang energik, lalu diikuti oleh
+                Warok, pengawal kharismatik yang merepresentasikan kekuatan
+                spiritual.
+              </p>
+              <p>
+                Dengan Pecut Samandiman, senjata sakral berbentuk tongkat rotan
+                berhias jebug merah dan kuning, Prabu Klono Sewandono akhirnya
+                menaklukkan Singo Barong.
+              </p>
+              <p>
+                Reog tidak hanya menjadi seni pertunjukan, tetapi juga bagian
+                dari tradisi sakral Gerbeksurau, sebuah ritual penghormatan
+                terhadap pusaka yang dikirab dan dimandikan pada malam satu
+                surau. Malam ini juga menjadi ajang Festival Reog Mini dan
+                Festival Reog Nasional.
+              </p>
+
+              <h2>Reog Ponorogo Di Era Teknologi</h2>
+              <p>
+                Seiring perkembangan zaman, muncul pertanyaan besar mengenai
+                kelangsungan Reog Ponorogo. Banyak pihak yang khawatir apakah
+                seni ini mampu bertahan menghadapi modernisasi atau justru
+                tergeser oleh hiburan digital.
+              </p>
+              <p>
+                Namun, hingga saat ini, antusiasme masyarakat terhadap Reog
+                masih tinggi. Festival Reog Mini dan Festival Reog Nasional
+                tetap menarik banyak penonton, termasuk mahasiswa dari
+                Universitas Brawijaya.
+              </p>
+
+              <h2>Pertunjukan Spesial: Drama-Tari di Bawah Bulan Purnama</h2>
+              <p>
+                UKM PSRM Sardulo Anorogo mempersembahkan pertunjukan drama-tari
+                spektakuler di bawah keindahan bulan purnama. Acara berlangsung
+                pada Sabtu, 17 Mei 2025, bertempat di Panggung Gedung Ir.
+                Soekarno, mulai pukul 19:30.
+              </p>
+              <p>
+                Melalui perpaduan antara tradisi, teknologi, dan komunitas, Reog
+                Ponorogo tetap tegak sebagai warisan budaya yang akan terus
+                hidup. Seni ini tidak hanya sekadar warisan masa lalu, tetapi
+                juga bagian dari identitas yang harus terus dirawat dan
+                dilestarikan.
+              </p>
+
+              <div class="artikel-sumber">
+                <i class="fas fa-external-link-alt"></i> Sumber:
+                <a href="https://kompasiana.com" target="_blank"
+                  >kompasiana.com</a
+                >
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <!-- /page-artikel -->
+
+      <!-- ===== VIDEO ===== -->
+      <div class="page" id="page-video">
+        <section class="page-hero video-hero">
+          <div class="page-hero-content">
+            <div class="hero-badge">
+              <i class="fas fa-play-circle"></i> Media Edukasi
+            </div>
+            <h1>Video <span>Edukasi</span></h1>
+            <p>Media pembelajaran interaktif budaya Reog Ponorogo</p>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="video-container">
+            <div class="video-frame-wrap">
+              <iframe
+                src="https://youtu.be/rahBAAwzeew?si=kgnfUpCtMEK3SJLe"
+                title="Video Reog Ponorogo"
+                allowfullscreen
+              >
+              </iframe>
+            </div>
+            <div class="video-info">
+              <span class="video-badge">🎬 VIDEO EDUKASI BUDAYA</span>
+              <h2>Mengenal Reog Ponorogo: Warisan Budaya Dunia</h2>
+              <p>
+                Saksikan kemegahan pertunjukan Reog Ponorogo dan pelajari
+                nilai-nilai budaya yang terkandung di dalamnya.
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+      <!-- /page-video -->
+
+      <!-- ===== QUIZ ===== -->
+      <div class="page" id="page-quiz">
+        <section class="page-hero quiz-hero">
+          <div class="page-hero-content">
+            <div class="hero-badge">
+              <i class="fas fa-question-circle"></i> Uji Pengetahuan
+            </div>
+            <h1>Quiz <span>Reog Ponorogo</span></h1>
+            <p>20 soal pilihan ganda tentang budaya Ponorogo</p>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="quiz-container">
+            <!-- Start Screen -->
+            <div id="quiz-start">
+              <div class="quiz-start-card">
+                <div class="quiz-start-icon">🎭</div>
+                <h2>Siap Uji Pengetahuan?</h2>
+                <p>
+                  Jawab 20 soal tentang Reog Ponorogo dan dapatkan nilai terbaik
+                  kamu!
+                </p>
+                <div class="quiz-rules">
+                  <div class="rule-item">
+                    <i class="fas fa-list-ol"></i> 20 Soal Pilihan Ganda
+                  </div>
+                  <div class="rule-item">
+                    <i class="fas fa-check-circle"></i> Langsung Tahu Jawaban
+                    Benar
+                  </div>
+                  <div class="rule-item">
+                    <i class="fas fa-trophy"></i> Nilai Akhir 0–100
+                  </div>
+                </div>
+                <button class="btn-primary big-btn" onclick="startQuiz()">
+                  Mulai Quiz <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Active Quiz -->
+            <div id="quiz-active" style="display: none">
+              <div class="quiz-card">
+                <div class="quiz-info-bar">
+                  <span class="q-counter"
+                    >Soal <span id="current-q">1</span>/20</span
+                  >
+                  <span class="q-score-badge" id="score">Skor: 0</span>
+                </div>
+                <div class="quiz-progress">
+                  <div class="quiz-progress-fill" id="quiz-progress-fill"></div>
+                </div>
+                <p class="question-text" id="question-text"></p>
+                <div class="options-grid" id="options"></div>
+                <button
+                  id="next-btn"
+                  class="btn-primary"
+                  onclick="nextQuestion()"
+                  style="display: none; margin-top: 20px"
+                >
+                  Soal Berikutnya <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Result -->
+            <div id="quiz-result" style="display: none">
+              <div class="quiz-result-card">
+                <div class="result-trophy">🏆</div>
+                <h2>Quiz Selesai!</h2>
+                <div class="result-score-wrap">
+                  <div class="result-score-big" id="final-score-num">0</div>
+                  <div class="result-score-label" id="final-score-text"></div>
+                </div>
+                <button class="btn-primary big-btn" onclick="restartQuiz()">
+                  <i class="fas fa-redo"></i> Ulangi Quiz
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <!-- /page-quiz -->
+
+      <!-- ===== GAME ===== -->
+      <div class="page" id="page-game">
+        <section class="page-hero game-hero">
+          <div class="page-hero-content">
+            <div class="hero-badge">
+              <i class="fas fa-gamepad"></i> Mini Game
+            </div>
+            <h1>Game <span>Warok</span></h1>
+            <p>
+              Bantu Warok melompat, kumpulkan topeng, dan hindari keris musuh!
+            </p>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="game-wrapper">
+            <div class="game-header-bar">
+              <div class="game-title-text">🦁 WAROK JAGA PONOROGO</div>
+              <div class="game-hud">
+                <div class="hud-item">Skor: <span id="g-score">0</span></div>
+                <div class="hud-item">Level: <span id="g-level">1</span></div>
+                <div class="hud-item">
+                  Nyawa: <span id="g-lives">❤️❤️❤️</span>
+                </div>
+              </div>
+            </div>
+
+            <canvas id="game-canvas" width="800" height="400"></canvas>
+
+            <div class="game-controls">
+              <button
+                class="game-btn-main"
+                id="start-btn"
+                onclick="startGame()"
+              >
+                <i class="fas fa-play"></i> Mulai Game
+              </button>
+              <button class="game-btn-ghost" onclick="resetGame()">
+                <i class="fas fa-redo"></i> Reset
+              </button>
+            </div>
+
+            <div class="game-how-to">
+              <i class="fas fa-info-circle"></i>
+              Tekan <kbd>Spasi</kbd> atau <strong>Klik/Tap</strong> layar untuk
+              loncat &bull; Kumpulkan topeng <strong>🎭</strong> (+10 poin)
+              &bull; Hindari keris <strong>⚔️</strong>
+            </div>
+          </div>
+        </section>
+      </div>
+      <!-- /page-game -->
+    </main>
+    <!-- /app -->
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-logo">
+        <div class="logo-house small">
+          <div class="house-roof"></div>
+          <div class="house-body">
+            <div class="house-door"></div>
+          </div>
         </div>
-
+        <span>Art Of Ponorogo</span>
       </div>
-    </section>
+      <p>Pelestarian Reog Ponorogo Melalui Teknologi Digital</p>
+      <p class="footer-copy">
+        &copy; 2025 Art Of Ponorogo. Semua hak dilindungi.
+      </p>
+    </footer>
 
-  </div><!-- /page-game -->
-
-</main><!-- /app -->
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-logo">
-    <div class="logo-house small">
-      <div class="house-roof"></div>
-      <div class="house-body">
-        <div class="house-door"></div>
-      </div>
-    </div>
-    <span>Art Of Ponorogo</span>
-  </div>
-  <p>Pelestarian Reog Ponorogo Melalui Teknologi Digital</p>
-  <p class="footer-copy">&copy; 2025 Art Of Ponorogo. Semua hak dilindungi.</p>
-</footer>
-
-<!-- JS -->
-<script src="script.js"></script>
-
-</body>
+    <!-- JS -->
+    <script src="script.js"></script>
+  </body>
 </html>
