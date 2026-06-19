@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PONOROGO PRIDE - Kota Reog & Kearifan Lokal</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- CSS Lokal -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="master-bg-layer"></div>
+    <div class="master-overlay"></div>
+    
+    <nav class="sticky top-0 z-[100] bg-slate-900/90 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex flex-wrap justify-between items-center gap-4">
+            <!-- GANTI BAGIAN INI DI DALAM <nav> -->
+            <div onclick="showSegment('home')" class="cursor-pointer flex items-center gap-3">
+                <!-- Logo Reog (tanpa huruf R) -->
+                <img src="foto-house.png" 
+                    alt="Logo Reog Ponorogo" 
+                    class="w-12 h-12 object-contain rounded-xl shadow-lg">
+
+                <div>
+                    <span class="font-extrabold text-2xl tracking-tighter text-white block">PONOROGO</span>
+                    <span class="text-red-500 text-xs font-bold block -mt-1 tracking-widest">PRIDE</span>
+                </div>
+            </div>
+            <div class="flex flex-wrap gap-2 sm:gap-5 font-semibold text-xs sm:text-sm uppercase tracking-wider text-slate-400">
+                <button id="nav-home" onclick="showSegment('home')" class="nav-btn px-2 py-1 hover:text-orange-500 transition active-nav">Beranda</button>
+                <button id="nav-profile" onclick="showSegment('profile')" class="nav-btn px-2 py-1 hover:text-orange-500 transition">Profil</button>
+                <button id="nav-materi" onclick="showSegment('materi')" class="nav-btn px-2 py-1 hover:text-orange-500 transition">Tantangan Kearifan Lokal</button>
+                <button id="nav-artikel" onclick="showSegment('artikel')" class="nav-btn px-2 py-1 hover:text-orange-500 transition">Artikel</button>
+                <button id="nav-video" onclick="showSegment('video')" class="nav-btn px-2 py-1 hover:text-orange-500 transition">Video AI</button>
+                <button id="nav-game" onclick="showSegment('game')" class="nav-btn px-2 py-1 hover:text-orange-500 transition">Game</button>
+                <button id="nav-evaluasi" onclick="showSegment('evaluasi')" class="bg-orange-600 text-white px-4 py-2 rounded-xl hover:bg-orange-700 transition font-bold">Kuis Pengetahuan</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto p-4 sm:p-8 lg:p-12"> 
+        <!-- HOME -->
+        <section id="home" class="segment active">
+            <div class="glass-container p-8 sm:p-16 lg:p-20 text-center max-w-4xl mx-auto">
+                <span class="bg-red-500/10 text-red-400 text-xs font-bold tracking-widest uppercase px-4 py-2 rounded-full border border-red-500/20 inline-block mb-6">Kearifan Lokal Ponorogo</span>
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black text-white leading-tight mb-6 tracking-tight">
+                    PONOROGO<br><span class="text-orange-500">KOTA REOG</span>
+                </h1>
+                <p class="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto mb-10 leading-relaxed">
+                    Reog Ponorogo • Pelestarian Budaya di Era Digital • Potensi Ekonomi Kreatif Berbasis Budaya Lokal
+                </p>
+                <div class="flex flex-wrap gap-4 justify-center">
+                    <a href="https://framevr.io/redhouse"
+                        target="_blank"
+                        class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-2xl font-bold text-lg transition shadow-lg shadow-orange-600/20 inline-block">
+                        Jelajahi Ponorogo
+                    </a>
+                    <button onclick="toggleAI()" class="border border-slate-700 text-slate-200 px-8 py-4 rounded-2xl font-bold text-lg hover:bg-white/5 transition w-full sm:w-auto flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-robot text-orange-500"></i> Tanya AI Reog
+                    </button>
+                    <div id="ai-box"
+                    class="hidden mt-8 max-w-3xl mx-auto bg-slate-900 rounded-2xl p-6">
+
+                        <div id="chat-area"
+                        class="h-96 overflow-y-auto mb-4 space-y-3">
+
+                        </div>
+
+                        <div class="flex gap-2">
+                            <input
+                                id="ai-input"
+                                type="text"
+                                class="flex-1 p-3 rounded-xl bg-slate-800 text-white"
+                                placeholder="Tanya tentang Reog Ponorogo...">
+
+                            <button
+                                onclick="askAI()"
+                                class="bg-red-600 px-5 rounded-xl text-white">
+                                Kirim
+                            </button>
+                        </div>
+
+                    </div>
+            </div>
+        </section>
+
+        <!-- PROFILE -->
+        <section id="profile" class="segment">
+            <div class="max-w-3xl mx-auto glass-container p-6 sm:p-12 border border-slate-800">
+                <div class="text-center mb-8">
+                    <div class="w-24 h-24 rounded-full mx-auto mb-4 overflow-hidden border-2 border-red-500 shadow-xl">
+                    <img src="logo-ponorogo.png" alt="Logo"
+                        class="w-full h-full object-cover">
+                </div>
+                    <h2 class="text-3xl font-bold text-white tracking-tight">Profil Daerah & Pengembang</h2>
+                    <p class="text-orange-400 font-semibold text-xs tracking-wide uppercase mt-1">Sistem Informasi Multimedia Terpadu</p>
+                </div>
+                <div class="p-6 bg-slate-950/60 border border-slate-800 rounded-2xl text-justify text-slate-200 text-base sm:text-lg leading-relaxed mb-6">
+                    <i class="fa-solid fa-quote-left block text-3xl text-red-500/40 mb-2"></i>
+                    <strong>Kabupaten Ponorogo, </strong>  yang dikenal sebagai Bumi Reog, adalah wilayah di bagian barat daya Jawa Timur yang berbatasan langsung dengan Jawa Tengah dan berjarak 200 km dari Surabaya. Dengan luas 1.371,78 km² terbagi dalam 21 kecamatan, Ponorogo terkenal sebagai Kota Reog karena merupakan tempat lahirnya kesenian Reog Warok yang telah diakui UNESCO sebagai Warisan Budaya Takbenda dunia pada Desember 2024, sekaligus Kota Santri karena memiliki banyak pondok pesantren. Daerah ini memiliki potensi besar di sektor pertanian, perkebunan, dan pariwisata dengan destinasi unggulan seperti Monumen Reog, Air Terjun Banaran, Waduk Bendo, serta wisata arkeologis Goa Lawa.
+                </div>
+                <div class="text-sm text-slate-400 border-t border-slate-800/60 pt-4 grid sm:grid-cols-2 gap-x-2 gap-y-3">
+                    <div><i class="fa-solid fa-user text-red-500 mr-2"></i> <strong>Penyusun Projek:</strong> HOUSE MERAH JENJANG XI</div>
+                    <div><i class="fa-solid fa-graduation-cap text-red-500 mr-2"></i> <strong>Konfirmasi Kebenaran Data:</strong> - </div>
+                    <div><i class="fa-solid fa-square-poll-vertical text-red-500 mr-2"></i> <strong>Integritas Nilai:</strong> Syariah P. Rahman</div>
+                    <div><i class="fa-solid fa-laptop-code text-red-500 mr-2"></i> <strong>Platform:</strong> Edu-Tech Interaktif v2.0</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MATERI -->
+        <section id="materi" class="segment">
+            <h2 class="text-4xl font-extrabold text-center mb-2 text-white">Tantangan Kearifan Lokal Ponorogo</h2>
+            <p class="text-center text-slate-400 mb-12 max-w-xl mx-auto">Analisis tantangan pelestarian Reog Ponorogo beserta solusi inovatif di era modern.</p>
+            
+            <div class="grid md:grid-cols-2 gap-6 lg:gap-8">
+                <!-- Tantangan -->
+                <div class="card-ponorogo p-6 sm:p-8">
+                    <h3 class="text-2xl font-bold text-red-500 mb-6 flex items-center gap-3"><i class="fa-solid fa-triangle-exclamation"></i> Tantangan Utama</h3>
+                    <ul class="space-y-6 text-slate-300">
+                        <li class="border-l-4 border-red-500 pl-4">
+                            <strong class="text-white block text-lg">Globalisasi</strong>
+                            <p>Globalisasi menimbulkan tantangan serius bagi pelestarian kearifan lokal Ponorogo, khususnya kesenian Reog, karena dominasi budaya global dan westernisasi yang menyebabkan erosi tradisi dan identitas lokal, serta minimnya minat generasi muda terhadap seni tradisional. Orientasi kehidupan yang individualis, hedonis, dan materialistik menggeser sistem nilai sosial dan moral masyarakat Ponorogo, sehingga banyak generasi muda lebih memilih mengikuti tren budaya modern daripada melestarikan Reog. Urbanisasi juga memperparah kondisi ini karena generasi muda pindah ke kota besar untuk bekerja dan pendidikan, sehingga tidak partisipasi dalam upacara adat dan latihan Reog. Selain itu, Reog terasa ketinggalan zaman di tengah arus teknologi digital dan informasi global yang cepat, serta mengalami komodifikasi budaya yang mengubah makna dan fungsi asli Reog menjadi objek konsumsi.</p>
+                        </li>
+                        <li class="border-l-4 border-red-500 pl-4">
+                            <strong class="text-white block text-lg">Urbanisasi</strong>
+                            <p>Urbanisasi merupakan tantangan serius yang mengancam pelestarian kearifan lokal Ponorogo, terutama kesenian Reog dan nilai Warok, karena generasi muda Ponorogo pindah ke kota besar untuk kerja dan pendidikan, sehingga menyebabkan berkurangnya partisipasi dalam upacara adat seperti Festival Reog Remaja dan Grebeg Suro, serta hilangnya tradisi lokal karena pengaruh budaya populer global yang mengadopsi gaya hidup modern.</p>
+                        </li>
+                        <li class="border-l-4 border-red-500 pl-4">
+                            <strong class="text-white block text-lg">Perkembangan Teknologi</strong>
+                            <p>Perkembangan teknologi membuat kearifan lokal Ponorogo (Reog) susah lestari karena anak muda lebih sibuk main game, TikTok, dan media sosial, sehingga malas ikut latihan Reog dan kehilangan minat pada keterampilan tradisional. Kesenjangan digital antara kota dan desa juga menghambat dokumentasi Reog secara digital karena sanggar tidak punya internet cepat dan perangkat yang memadai.</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Kepedulian Generasi Muda -->
+                <div class="card-ponorogo p-6 sm:p-8">
+                    <h3 class="text-2xl font-bold text-red-500 mb-6 flex items-center gap-3"><i class="fa-solid fa-users"></i> Kepedulian Generasi Muda</h3>
+                    <div class="space-y-4 text-slate-300">
+                        <p>Kepedulian terhadap generasi muda dalam pelestarian kearifan lokal Ponorogo masih rendah karena banyak generasi muda yang tidak tertarik pada Reog dan lebih memilih budaya modern seperti game, TikTok, dan musik barat, sehingga minim partisipasi dalam latihan Reog dan tidak ngerti nilai baik yang ada di Reog seperti keberanian, tanggung jawab, dan silaturahmi. Banyak juga generasi muda yang pindah ke kota (urbanisasi) untuk kerja dan sekolah, sehingga tidak ikut upacara adat seperti Festival Reog Remaja dan Grebeg Suro, serta kehilangan identitas budaya Ponorogo. Selain itu, kurangnya edukasi tentang nilai Islam dan kearifan lokal dalam Reog membuat generasi muda tidak tahu bahwa Reog adalah media dakwah yang membentuk karakter disiplin, pemberani, dan kerja sama tim. Kepedulian orang tua, guru, dan masyarakat juga rendah karena menganggap Reog ketinggalan zaman dan tidak relevan dengan kehidupan modern, sehingga generasi muda tidak mendapat dukungan untuk ikut Reog.</p>
+                        <ul class="list-disc list-inside space-y-2 text-sm">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Inovasi Pelestarian -->
+                <div class="card-ponorogo p-6 sm:p-8 md:col-span-2">
+                    <h3 class="text-2xl font-bold text-red-500 mb-6 flex items-center gap-3"><i class="fa-solid fa-lightbulb"></i> Inovasi Pelestarian</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-semibold text-orange-400 mb-3">Ekosistem Budaya</h4>
+                            <p class="text-sm text-slate-300">Merumuskan Reog Ponorogo sebagai identitas budaya sekaligus penggerak ekonomi lokal. Mengintegrasikan budaya ke kehidupan sehari-hari.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-orange-400 mb-3">Program Pemerintah</h4>
+                            <p class="text-sm text-slate-300">"Tadaraus Budaya" setiap 15 Ramadhan di alun-alun, memadukan seni dan spiritualitas. Ekstrakurikuler Reog di sekolah sebagai media pelestarian.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Potensi Digitalisasi -->
+                <div class="card-ponorogo p-6 sm:p-8 md:col-span-2">
+                    <h3 class="text-2xl font-bold text-red-500 mb-6 flex items-center gap-3"><i class="fa-solid fa-laptop"></i> Potensi Digitalisasi Budaya</h3>
+                    <div class="grid sm:grid-cols-2 gap-4 text-sm">
+                        <div class="p-4 bg-slate-950/60 rounded-2xl border border-slate-700">
+                            <strong class="text-white">Pelestarian Arsip</strong><br>
+                            <span class="text-slate-400">Digitalisasi dokumen, foto, dan filosofi Reog untuk mencegah kerusakan fisik.</span>
+                        </div>
+                        <div class="p-4 bg-slate-950/60 rounded-2xl border border-slate-700">
+                            <strong class="text-white">Aksesibilitas Global</strong><br>
+                            <span class="text-slate-400">Konten TikTok, Instagram, dan video pendek untuk menarik generasi muda dan memperkenalkan Dadak Merah.</span>
+                        </div>
+                        <div class="p-4 bg-slate-950/60 rounded-2xl border border-slate-700">
+                            <strong class="text-white">Ekonomi Kreatif</strong><br>
+                            <span class="text-slate-400">Animasi, game, UMKM topeng & kostum Reog, serta pemanfaatan kekayaan intelektual budaya.</span>
+                        </div>
+                        <div class="p-4 bg-slate-950/60 rounded-2xl border border-slate-700">
+                            <strong class="text-white">Sadar Budaya</strong><br>
+                            <span class="text-slate-400">Podcast, infografis, pertunjukan virtual, dan partisipasi masyarakat melalui teknologi canggih.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ARTIKEL -->
+        <section id="artikel" class="segment">
+            <div class="max-w-4xl mx-auto glass-container p-6 sm:p-12">
+                <div class="border-b border-slate-800 pb-4 mb-6">
+                    <span class="text-red-500 font-bold uppercase text-xs tracking-widest block mb-2">Ruang Wacana Publik</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Reog Ponorogo di Tengah Arus Modernisasi</h2>
+                </div>
+                <div class="space-y-5 text-slate-300 text-base sm:text-lg leading-relaxed text-justify">
+                    <p>Reog Ponorogo bukan sekadar tarian, melainkan warisan budaya yang sarat nilai wirasasra dan wiramuda. Namun di era globalisasi, nilai sakralnya sering hanya menjadi hiburan visual untuk menarik turis mancanegara.</p>
+                    <p>Urbanisasi menyebabkan banyak pemuda merantau, sehingga tradisi nyadran dan sedekah bumi yang mengandalkan gotong royong semakin sulit dilaksanakan. Perkembangan teknologi membawa kesenjangan literasi digital dan pergeseran minat generasi muda.</p>
+                    <p>Meski demikian, semangat generasi muda tetap terlihat dari antusiasme festival Reog Remaja. Inovasi seperti Tadaraus Budaya, ekstrakurikuler sekolah, dan digitalisasi konten menjadi harapan pelestarian Reog Ponorogo sebagai identitas daerah dan penggerak ekonomi kreatif.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- VIDEO -->
+        <section id="video" class="segment">
+            <div class="max-w-4xl mx-auto glass-container p-6 sm:p-12 text-center">
+                <h2 class="text-3xl font-extrabold text-white mb-2">Simulasi Presentasi Video Edukasi AI</h2>
+                <p class="text-slate-400 mb-8 text-sm">Media presentasi digital berbasis Reog Ponorogo</p>
+                <div class="relative aspect-video w-full max-w-3xl mx-auto bg-slate-950 rounded-2xl border border-slate-800 overflow-hidden shadow-2xl flex flex-col justify-center items-center">
+                    <div class="absolute inset-0 bg-cover bg-center opacity-30 filter blur-sm" style="background-image: url('https://images.unsplash.com/photo-1585208798174-6cedd78e0198?q=80&w=2070');"></div>
+                    <div class="relative z-10 text-center px-4">
+                        <button onclick="alert('Simulasi AI Player: Memuat video dokumenter Reog Ponorogo...')" class="w-16 h-16 sm:w-20 sm:h-20 bg-red-600 hover:bg-red-700 text-white rounded-full flex items-center justify-center text-3xl shadow-xl shadow-red-600/30 transition transform hover:scale-110 mx-auto mb-4">
+                            <i class="fa-solid fa-play ml-1"></i>
+                        </button>
+                        <p class="font-bold text-white text-base sm:text-lg">Modul Multimedia: Pelestarian Reog Ponorogo di Era Digital</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GAME -->
+        <section id="game" class="segment">
+
+            <div class="glass-container p-8 max-w-3xl mx-auto">
+
+            <h2 class="text-center text-3xl font-black text-red-500 mb-3">
+            GAME BENAR ATAU SALAH
+            </h2>
+
+            <p class="text-center text-slate-400 mb-8">
+            Tentukan apakah pernyataan berikut benar atau salah.
+            </p>
+
+            <div id="game-container">
+
+            <h3 id="statement"
+            class="text-2xl text-center text-white mb-8">
+            Memuat soal...
+            </h3>
+
+            <div class="flex justify-center gap-4">
+
+            <button
+            onclick="checkGameAnswer(true)"
+            class="bg-green-600 px-8 py-4 rounded-xl text-white font-bold">
+            ✅ BENAR
+            </button>
+
+            <button
+            onclick="checkGameAnswer(false)"
+            class="bg-red-600 px-8 py-4 rounded-xl text-white font-bold">
+            ❌ SALAH
+            </button>
+
+            </div>
+
+            <div
+            id="game-feedback"
+            class="text-center mt-6 text-xl font-bold">
+            </div>
+
+            </div>
+
+            </div>
+
+            
+        </section>
+
+        <!-- EVALUASI -->
+        <section id="evaluasi" class="segment">
+            <div id="eval-setup" class="max-w-xl mx-auto glass-container p-8 sm:p-14 text-center border border-slate-800">
+                <i class="fa-solid fa-graduation-cap text-7xl text-red-500 mb-4"></i>
+                <h2 class="text-3xl font-black mb-2 text-white">Tes Pemahaman Reog Ponorogo</h2>
+                <input id="stu-name" type="text" placeholder="Ketik Nama Lengkap Peserta..." class="w-full p-4 rounded-xl text-center text-lg font-semibold mb-4 bg-slate-950 border border-slate-800 text-white outline-none focus:border-red-500">
+                <button onclick="startQuiz()" class="w-full bg-red-600 hover:bg-red-700 text-white py-4 rounded-xl font-bold text-lg transition">Mulai Tes Sekarang</button>
+            </div>
+            <div id="q-container" class="hidden max-w-2xl mx-auto glass-container p-6 sm:p-10 border border-slate-800"></div>
+        </section>
+
+        <!-- REKAPAN -->
+        <section id="rekapan" class="segment">
+            <div class="max-w-2xl mx-auto glass-container p-8 sm:p-12 text-center border border-slate-800 bg-gradient-to-b from-slate-900 to-slate-950">
+                <i class="fa-solid fa-award text-7xl text-yellow-500 mb-4"></i>
+                <h1 class="text-3xl font-black text-white uppercase tracking-tight">Sertifikat Wawasan Reog</h1>
+                <div class="mt-8 space-y-4 py-6 border-y border-slate-800/80">
+                    <p class="text-sm text-slate-400">Piagam ini diberikan kepada:</p>
+                    <h2 id="res-name" class="text-3xl font-extrabold text-red-400 tracking-tight">NAMA SISWA</h2>
+                    <div class="flex justify-center gap-12 mt-6">
+                        <div>
+                            <p class="text-xs text-slate-500 font-bold tracking-widest uppercase">Skor Nilai</p>
+                            <p id="res-score" class="text-6xl font-black text-white">100</p>
+                        </div>
+                        <div>
+                            <p class="text-xs text-slate-500 font-bold tracking-widest uppercase">Predikat</p>
+                            <p id="res-status" class="text-xl font-black text-emerald-400 uppercase mt-3">PELAKU REOG</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-8 flex flex-wrap gap-4 justify-center">
+                    <button onclick="showSegment('materi')" class="bg-slate-800 text-white px-5 py-2.5 rounded-xl font-semibold text-xs transition hover:bg-slate-700">Tinjau Ulang</button>
+                    <button onclick="window.print()" class="bg-red-600 text-white px-5 py-2.5 rounded-xl font-bold text-xs transition hover:bg-red-700">Unduh & Cetak (.PDF)</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>                                                                                                                                       

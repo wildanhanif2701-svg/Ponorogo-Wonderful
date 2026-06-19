@@ -1,0 +1,146 @@
+/* =========================
+FONT
+========================= */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
+
+/* =========================
+RESET
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* =========================
+BODY
+========================= */
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: #0b0f19;
+    color: #f1f5f9;
+    overflow-x: hidden;
+}
+
+/* =========================
+BACKGROUND GAMBAR UTAMA (INI FIX UTAMA)
+========================= */
+#master-bg-layer {
+    position: fixed;
+    inset: 0;
+    z-index: -10;
+
+    background-image: url('foto-barong.png'); /* 👈 gambar Reog kamu */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    filter: brightness(0.45) saturate(1.3);
+    transition: background-image 1s ease-in-out;
+}
+
+/* overlay gelap biar teks kebaca */
+.master-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: -5;
+
+    background: radial-gradient(
+        circle at center,
+        rgba(11,15,25,0.2),
+        rgba(11,15,25,0.9)
+    );
+}
+
+/* =========================
+SEGMENT PAGE
+========================= */
+.segment {
+    display: none;
+    min-height: 80vh;
+    animation: fadeIn 0.5s ease;
+}
+
+.segment.active {
+    display: block;
+}
+
+/* =========================
+ANIMASI
+========================= */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+GLASS EFFECT (UI kamu)
+========================= */
+.glass-container {
+    background: rgba(15, 23, 42, 0.65);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 20px;
+}
+
+/* =========================
+BUTTON HOVER FIX
+========================= */
+button {
+    cursor: pointer;
+}
+
+/* =========================
+CHAT BOX
+========================= */
+#ai-box {
+    animation: fadeIn 0.3s ease;
+}
+
+/* chat bubble */
+#chat-area div {
+    margin-bottom: 10px;
+}
+
+/* =========================
+GAME AREA
+========================= */
+#game-container {
+    text-align: center;
+}
+
+/* =========================
+QUIZ AREA
+========================= */
+#q-container button {
+    transition: 0.2s ease;
+}
+
+#q-container button:hover {
+    transform: scale(1.02);
+}
+
+/* =========================
+NAV ACTIVE FIX
+========================= */
+.nav-btn.active-nav {
+    color: #f97316;
+}
+
+/* =========================
+SCROLLBAR (optional keren)
+========================= */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 10px;
+}
